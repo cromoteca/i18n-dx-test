@@ -1,16 +1,49 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
+import { TextField, Button, Notification, EmailField } from '@vaadin/react-components';
+import { useSignal } from '@vaadin/hilla-react-signals';
+import { Detail } from 'Frontend/types/detail';
 
-export const config: ViewConfig = {
-  menu: { order: 2, icon: 'line-awesome/svg/file-invoice-solid.svg' },
-  title: 'Form',
+export const config: ViewConfig<Detail> = {
+  title: 'Example of a Form',
+  menu: {
+    title: 'Form Example',
+    order: 2,
+    icon: 'line-awesome/svg/file-invoice-solid.svg'
+  },
+  detail: {
+    description: 'Demonstrates a simple form with two fields',
+    badge: {
+      text: 'New',
+      variant: 'info'
+    }
+  }
 };
 
 export default function FormView() {
+  const name = useSignal('John Doe');
+  const email = useSignal('john.doe@example.com');
+
+  const handleSubmit = () => {
+    Notification.show(`Submitted: ${name.value}, ${email.value}`);
+  };
+
   return (
-    <div className="flex flex-col h-full items-center justify-center p-l text-center box-border">
-      <img style={{ width: '200px' }} src="images/empty-plant.png" />
-      <h2>This place intentionally left empty</h2>
-      <p>It’s a place where you can grow your own UI 🤗</p>
-    </div>
+    <section className="flex flex-col gap-m p-m max-w-xs">
+      <form className="flex flex-col gap-m">
+        <TextField
+          label="Name"
+          value={name.value}
+          onValueChanged={e => (name.value = e.detail.value)}
+          required
+        />
+        <EmailField
+          label="Email"
+          value={email.value}
+          onValueChanged={e => (email.value = e.detail.value)}
+          required
+        />
+        <Button theme="primary" onClick={handleSubmit}>Submit</Button>
+      </form>
+    </section>
   );
 }

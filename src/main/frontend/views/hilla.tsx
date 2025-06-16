@@ -3,7 +3,14 @@ import { useSignal } from '@vaadin/hilla-react-signals';
 import { Button, Notification, TextField } from '@vaadin/react-components';
 import { HelloWorldService } from 'Frontend/generated/endpoints.js';
 
-export const config: ViewConfig = { menu: { order: 1, icon: 'line-awesome/svg/globe-solid.svg' }, title: 'Hilla' };
+export const config: ViewConfig = {
+  title: 'Hello from Hilla',
+  menu: {
+    title: 'Hilla',
+    order: 1,
+    icon: 'line-awesome/svg/globe-solid.svg'
+  },
+};
 
 export default function HillaView() {
   const name = useSignal('');
