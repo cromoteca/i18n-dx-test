@@ -19,10 +19,10 @@ public class HelloFlowView extends HorizontalLayout {
     private Button sayHello;
 
     public HelloFlowView() {
-        name = new TextField("Your name");
-        sayHello = new Button("Say hello");
+        name = new TextField(getTranslation("your.name"));
+        sayHello = new Button(getTranslation("say.hello"));
         sayHello.addClickListener(e -> {
-            Notification.show("Hello " + name.getValue());
+            Notification.show(getTranslation("hello.message", name.getValue()));
         });
         sayHello.addClickShortcut(Key.ENTER);
 
@@ -33,3 +33,4 @@ public class HelloFlowView extends HorizontalLayout {
     }
 
 }
+    
