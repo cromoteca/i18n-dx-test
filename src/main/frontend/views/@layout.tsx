@@ -1,4 +1,5 @@
 import { createMenuItems, useViewConfig } from '@vaadin/hilla-file-router/runtime.js';
+import { i18n } from '@vaadin/hilla-react-i18n';
 import { effect, signal } from '@vaadin/hilla-react-signals';
 import { AppLayout, DrawerToggle, Icon, SideNav, SideNavItem } from '@vaadin/react-components';
 import { Detail } from 'Frontend/types/detail';
@@ -9,6 +10,8 @@ const documentTitleSignal = signal('');
 effect(() => {
   document.title = documentTitleSignal.value;
 });
+
+i18n.configure({ language: 'it-IT' });
 
 // Publish for Vaadin to use
 (window as any).Vaadin.documentTitleSignal = documentTitleSignal;
