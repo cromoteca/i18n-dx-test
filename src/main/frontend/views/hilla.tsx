@@ -1,4 +1,5 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
+import { key, translate } from '@vaadin/hilla-react-i18n';
 import { useSignal } from '@vaadin/hilla-react-signals';
 import { Button, Notification, TextField } from '@vaadin/react-components';
 import { HelloWorldService } from 'Frontend/generated/endpoints.js';
@@ -19,7 +20,7 @@ export default function HillaView() {
     <>
       <section className="flex p-m gap-m items-end">
         <TextField
-          label="Your name"
+          label={translate(key`your.name`)}
           onValueChanged={(e) => {
             name.value = e.detail.value;
           }}
@@ -30,7 +31,7 @@ export default function HillaView() {
             Notification.show(serverResponse);
           }}
         >
-          Say hello
+          {translate(key`say.hello`)}
         </Button>
       </section>
     </>
