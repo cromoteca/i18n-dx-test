@@ -10,9 +10,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
-@PageTitle("Hello Flow")
+@PageTitle("flow.title")
 @Route("")
-@Menu(order = 0, icon = LineAwesomeIconUrl.GLOBE_SOLID)
+@Menu(order = 0, icon = LineAwesomeIconUrl.GLOBE_SOLID, title="flow.title")
 public class HelloFlowView extends HorizontalLayout {
 
     private TextField name;

@@ -34,9 +34,9 @@ export default function MainLayout() {
           <span className="font-semibold text-l">I18n DX Test</span>
           <SideNav onNavigate={({ path }) => navigate(path!)} location={location}>
             {createMenuItems<Detail>().map(({ to, title, icon, detail }) => (
-              <SideNavItem path={to} key={to} title={detail?.description ?? title}>
+              <SideNavItem path={to} key={to} title={i18n.translateDynamic(detail?.description ?? title).value}>
                 {icon ? <Icon src={icon} slot="prefix"></Icon> : <></>}
-                {title}{' '}
+                {i18n.translateDynamic(title)}{' '}
                 {detail?.badge && (
                   <span {...{ theme: `badge small primary ${detail.badge.variant}` }}>{detail.badge.text}</span>
                 )}
@@ -48,7 +48,7 @@ export default function MainLayout() {
 
       <DrawerToggle slot="navbar" aria-label="Menu toggle"></DrawerToggle>
       <h1 slot="navbar" className="text-l m-0">
-        {documentTitleSignal}
+        {i18n.translateDynamic(documentTitleSignal.value)}
       </h1>
 
       <Suspense>

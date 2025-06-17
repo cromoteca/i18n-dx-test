@@ -5,9 +5,9 @@ import { Button, Notification, TextField } from '@vaadin/react-components';
 import { HelloWorldService } from 'Frontend/generated/endpoints.js';
 
 export const config: ViewConfig = {
-  title: 'Hello from Hilla',
+  title: key`hilla.title`,
   menu: {
-    title: 'Hilla',
+    title: key`hilla.menu.title`,
     order: 1,
     icon: 'line-awesome/svg/globe-solid.svg'
   },

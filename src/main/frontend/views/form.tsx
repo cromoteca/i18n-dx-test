@@ -5,9 +5,9 @@ import { Detail } from 'Frontend/types/detail';
 import { key, translate } from '@vaadin/hilla-react-i18n';
 
 export const config: ViewConfig<Detail> = {
-  title: 'Example of a Form',
+  title: key`form.title`,
   menu: {
-    title: 'Form Example',
+    title: key`form.menu.title`,
     order: 2,
     icon: 'line-awesome/svg/file-invoice-solid.svg'
   },
